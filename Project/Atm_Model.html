@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATM Interface</title>
+<link rel="stylesheet" href="Atm_Model.css">
+</head>
+<body>
+<div class="container">
+  <h2>ATM Model</h2>
+  <input type="text" id="amountInput" placeholder="Enter amount">
+  <div class="buttons">
+    <button id="savingsBtn" onclick="processTransaction('savings')">Savings</button>
+    <button id="depositBtn" onclick="processTransaction('deposit')">Deposit</button>
+    <button id="withdrawBtn" onclick="processTransaction('withdraw')">Withdraw</button>
+    <button id="cancelBtn" onclick="processTransaction('cancel')">Cancel</button>
+  </div>
+</div>
+<script type="text/javascript">
+function processTransaction(type) {
+  var amount = parseInt(document.getElementById('amountInput').value);
+   var current=1000;
+  
+  switch (type) {
+    case 'savings':
+    document.writeln("Balance Amount : "+current);
+    break;
+    case 'deposit':
+    current+=amount;
+    document.writeln("Amount Deposited : "+amount);
+    document.writeln("Balance Amount : "+current);
+      break;
+    case 'withdraw':
+    current-=amount;
+    document.writeln("Amount WithDraw : "+amount);
+    document.writeln("Balance Amount : "+current);
+      break;
+    case 'cancel':
+      document.writeln("Transaction Declined");
+      
+      break;
+    default:
+      document.writeln("Invalid transaction type");
+  }
+}
+</script>
+</body>
+</html>
